@@ -37,6 +37,9 @@ const SystemResume: React.FC = () => {
     const IconLinkedin = () => (
         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
     );
+    const IconExternalLink = () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+    );
 
     return (
         <div className="min-h-screen bg-slate-100 py-12 px-4 resume-print-wrapper">
@@ -53,10 +56,10 @@ const SystemResume: React.FC = () => {
 
             <div className="resume-page max-w-[210mm] mx-auto bg-white shadow-xl relative overflow-hidden">
                 {/* Header Section (Compressed) */}
-                <header className="bg-slate-950 text-white px-6 py-4 print:p-4">
+                <header className="bg-slate-950 text-white px-6 py-2 print:p-2">
                     <div className="flex justify-between items-end">
-                        <div>
-                            <h1 className="text-2xl font-black tracking-tighter mb-0.5">{personalInfo.name}</h1>
+                        <div className="mb-0.5">
+                            <h1 className="text-2xl font-black tracking-tighter mb-0 line-height-[1]">{personalInfo.name}</h1>
                             <p className="text-xs font-bold text-indigo-400 tracking-widest uppercase">{personalInfo.title}</p>
                         </div>
                         <div className="text-right space-y-0.5 text-[9pt] font-medium text-slate-400">
@@ -67,10 +70,10 @@ const SystemResume: React.FC = () => {
                                 <IconMail />
                                 <a href={`mailto:${personalInfo.email}`} className="hover:text-white transition-colors">{personalInfo.email}</a>
                             </p>
-                            <p className="flex items-center justify-end gap-2">
+                            <div className="flex items-center justify-end gap-2">
                                 <p className="text-white font-bold">{personalInfo.phone}</p>
-                            </p>
-                            <div className="flex justify-end gap-3 mt-1">
+                            </div>
+                            <div className="flex justify-end gap-3 mt-0.5">
                                 <a href={`https://github.com/${personalInfo.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-white transition-colors">
                                     <IconGithub /> github.com/{personalInfo.github}
                                 </a>
@@ -82,70 +85,59 @@ const SystemResume: React.FC = () => {
                     </div>
                 </header>
 
-                <div className="px-6 py-3 space-y-3 print:px-5 print:py-2">
+                <div className="px-6 py-1.5 space-y-1.5 print:px-5 print:py-1.5">
 
                     {/* Summary & Core Signals */}
-                    <div className="space-y-3">
+                    <div className="space-y-1">
                         <section>
                             <p className="text-[9.5pt] leading-snug font-medium text-slate-700 text-justify">
                                 {summary}
                             </p>
                         </section>
-                        <section className="flex flex-wrap gap-2 justify-center text-center mt-2">
+                        <section className="flex flex-wrap gap-1.5 justify-center text-center mt-0.5">
                             {achievements.map((ach: any, idx: number) => (
-                                <div key={idx} className="bg-slate-950 border border-slate-800 p-1.5 rounded-lg flex flex-col justify-center items-center h-full min-w-[90px] shadow-sm print:bg-slate-950 print:border-slate-950">
-                                    <p className="text-[9pt] font-black leading-none text-white">{ach.label}</p>
-                                    <p className="text-[5.5pt] font-black uppercase tracking-[0.05em] text-indigo-400 mt-0.5 text-center leading-none">{ach.company}</p>
+                                <div key={idx} className="bg-slate-950 border border-slate-800 p-0.5 px-1.5 rounded-md flex flex-col justify-center items-center h-full min-w-[70px] shadow-sm print:bg-slate-950 print:border-slate-950">
+                                    <p className="text-[8pt] font-black leading-none text-white">{ach.label}</p>
+                                    <p className="text-[4.5pt] font-black uppercase tracking-[0.05em] text-indigo-400 mt-0.5 text-center leading-none">{ach.company}</p>
                                 </div>
                             ))}
                         </section>
                     </div>
 
-                    {/* Infrastructure Matrix (Clean 2-Column) */}
-                    <section className="relative pt-2 pb-4">
-                        <div className="grid grid-cols-2 gap-x-12 items-start">
-                            {/* Left Column: AI, Backend, Cloud */}
-                            <div className="space-y-4">
-                                {skills.slice(0, 3).map((skill: any, idx: number) => (
-                                    <div key={idx}>
-                                        <h3 className="text-[8pt] font-bold text-slate-500 uppercase tracking-widest mb-2">{skill.category}</h3>
-                                        <p className="text-[9pt] font-medium text-slate-900 leading-snug">
-                                            {skill.items.join(', ')}
-                                        </p>
+                    <section className="relative py-0">
+                        <div className="grid grid-cols-6 items-stretch divide-x divide-slate-200">
+                            {skills.map((skill: any, idx: number) => (
+                                <div key={idx} className="col-span-1 px-1.5 first:pl-0 last:pr-0 space-y-0.5">
+                                    <h3 className="text-[6.5pt] font-black text-slate-500 uppercase tracking-widest mb-0.5 leading-none">{skill.category}</h3>
+                                    <div className="flex flex-wrap gap-0.5">
+                                        {skill.items.map((item: string, iIdx: number) => (
+                                            <span key={iIdx} className="bg-slate-100 border border-slate-200 text-slate-700 px-1 py-0.5 rounded text-[6.5pt] font-bold leading-none">
+                                                {item}
+                                            </span>
+                                        ))}
                                     </div>
-                                ))}
-                            </div>
-
-                            {/* Right Column: Programming, DB, Data */}
-                            <div className="space-y-4">
-                                {skills.slice(3, 6).map((skill: any, idx: number) => (
-                                    <div key={idx}>
-                                        <h3 className="text-[8pt] font-bold text-slate-500 uppercase tracking-widest mb-2">{skill.category}</h3>
-                                        <p className="text-[9pt] font-medium text-slate-900 leading-snug">
-                                            {skill.items.join(', ')}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
                     </section>
 
                     {/* Experience Section - Unified Narrative */}
                     <section>
-                        <h2 className="text-[10pt] font-bold text-slate-900 border-b-2 border-slate-900 pb-1 mb-4 uppercase tracking-widest">
+                        <h2 className="text-[10pt] font-bold text-slate-900 border-b-2 border-slate-900 pb-0.5 mb-1 uppercase tracking-widest">
                             Experience
                         </h2>
 
-                        <div className="space-y-6">
+                        <div className="space-y-4">
                             {Object.entries(groupedProjects).map(([client, projects]: [string, any], idx) => (
                                 <div key={idx} className={`
-                                    ${idx === 0 ? 'print:mb-12' : ''} 
-                                    ${idx === 1 ? 'print:break-before-page print:pt-12' : ''}
+                                    ${idx === 0 ? 'print:mb-4' : ''} 
+                                    ${idx === 1 ? 'print:break-before-page print:pt-6' : ''}
                                 `}>
                                     <OrganizationCard
                                         organization={client}
                                         role={projects[0].role}
                                         period={projects[0].period}
+                                        location={projects[0].location}
                                         projects={projects}
                                         titleColorClass="text-blue-700"
                                     />
@@ -154,29 +146,38 @@ const SystemResume: React.FC = () => {
                         </div>
                     </section>
 
-                    {/* Other Experience */}
+                    {/* Other Experience - Matching OrganizationCard Header Style */}
                     <section>
-                        <h2 className="text-[9pt] font-black text-slate-400 uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
+                        <h2 className="text-[9pt] font-black text-slate-400 uppercase tracking-[0.2em] mb-0.5 flex items-center gap-2">
                             Professional History
                             <span className="h-px bg-slate-200 flex-grow"></span>
                         </h2>
-                        <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+                        <div className="grid grid-cols-2 gap-x-8 gap-y-1">
                             {resumeData.experience
                                 .filter((exp: any) => !['Improva', 'CyberTranscend'].includes(exp.company))
                                 .map((exp: any, idx: number) => (
                                     <div key={idx} className="relative pl-3 border-l border-slate-200 print:border-slate-300">
-                                        <div className="flex justify-between items-baseline mb-0.5">
-                                            <h3 className="text-[9.5pt] font-black text-slate-900 leading-none">{exp.role}</h3>
-                                            <span className="text-[8pt] font-bold text-slate-400 print:text-slate-600">
-                                                {exp.period}
-                                            </span>
+                                        {/* Header: Company | Role | Period | Location */}
+                                        <div className="flex justify-between items-center mb-0.5">
+                                            <div className="flex items-center gap-1.5 overflow-hidden">
+                                                <div className="text-[8pt] font-bold uppercase tracking-wider leading-none text-blue-700 whitespace-nowrap">{exp.company}</div>
+                                                <span className="text-slate-300 text-[8.5pt] font-light">|</span>
+                                                <h3 className="text-[8.5pt] font-black text-slate-900 leading-none truncate">{exp.role}</h3>
+                                            </div>
                                         </div>
-                                        <div className="text-[8.5pt] font-bold uppercase tracking-wider mb-0.5 leading-none text-blue-700">
-                                            {exp.company}
+                                        <div className="flex items-center gap-2 text-[7.5pt] font-bold text-slate-400 print:text-slate-600 mb-0.5">
+                                            <span>{exp.period}</span>
+                                            {exp.location && (
+                                                <>
+                                                    <span className="text-slate-300 text-[9px]">|</span>
+                                                    <span>{exp.location}</span>
+                                                </>
+                                            )}
                                         </div>
+
                                         <ul className="space-y-0.5">
                                             {exp.bullets.slice(0, 2).map((bullet: string, bIdx: number) => (
-                                                <li key={bIdx} className="text-[9pt] leading-tight text-slate-600 flex gap-1.5 print:text-slate-900">
+                                                <li key={bIdx} className="text-[8.5pt] leading-tight text-slate-600 flex gap-1.5 print:text-slate-900">
                                                     <span className="text-slate-300 font-bold shrink-0 print:text-slate-500">•</span>
                                                     <span dangerouslySetInnerHTML={{ __html: bullet.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-800">$1</strong>') }} />
                                                 </li>
@@ -188,39 +189,50 @@ const SystemResume: React.FC = () => {
                     </section>
 
                     {/* Compact Footer Grid: Projects, OS, Leadership */}
-                    <div className="pt-3 border-t border-slate-100">
+                    <div className="pt-2 border-t border-slate-100">
                         {/* Selected Projects */}
                         <section>
-                            <h2 className="text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-3 border-b border-slate-200 pb-1">
+                            <h2 className="text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-1 border-b border-slate-200 pb-1">
                                 Additional Projects
                             </h2>
-                            <div className="grid grid-cols-3 gap-6">
-                                {projects.map((project: any, idx: number) => (
-                                    <div key={idx}>
-                                        <h3 className="text-[9pt] font-bold text-slate-900 leading-none mb-1">{project.name}</h3>
-                                        <p className="text-[8.5pt] text-slate-600 leading-snug">{project.desc}</p>
-                                    </div>
-                                ))}
+                            <div className="space-y-1">
+                                <div className="grid grid-cols-4 gap-3">
+                                    {projects.map((project: any, idx: number) => (
+                                        <div key={idx} className="flex flex-col gap-0.5">
+                                            {project.link && project.link !== '#' ? (
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1 text-[8.5pt] font-bold text-slate-900 hover:text-indigo-600 transition-colors">
+                                                    {project.name}
+                                                    <span className="text-slate-400 group-hover:text-indigo-600">
+                                                        <IconExternalLink />
+                                                    </span>
+                                                </a>
+                                            ) : (
+                                                <h3 className="text-[8.5pt] font-bold text-slate-900 leading-none">{project.name}</h3>
+                                            )}
+                                            <p className="text-[7.5pt] text-slate-600 leading-tight">{project.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </section>
 
                         {/* Education & Leadership */}
-                        <section className="grid grid-cols-2 gap-8 pt-4 border-t border-slate-200">
+                        <section className="grid grid-cols-2 gap-8 pt-2 border-t border-slate-200 mt-2">
                             <div>
-                                <h2 className="text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-3">Education</h2>
+                                <h2 className="text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-1">Education</h2>
                                 {education.map((edu: any, idx: number) => (
                                     <div key={idx}>
-                                        <p className="text-[9.5pt] font-bold text-slate-900">{edu.institution}</p>
-                                        <p className="text-[9pt] text-slate-600">{edu.degree} | {edu.location}</p>
-                                        <p className="text-[9pt] text-slate-500 mt-0.5">{edu.details}</p>
+                                        <p className="text-[9pt] font-bold text-slate-900">{edu.institution}</p>
+                                        <p className="text-[8.5pt] text-slate-600">{edu.degree} | {edu.location}</p>
+                                        <p className="text-[8.5pt] text-slate-500 mt-0.5">{edu.details}</p>
                                     </div>
                                 ))}
                             </div>
                             <div>
-                                <h2 className="text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-3">Leadership</h2>
-                                <ul className="space-y-1">
+                                <h2 className="text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-1">Leadership</h2>
+                                <ul className="space-y-0.5">
                                     {leadership.map((item: any, idx: number) => (
-                                        <li key={idx} className="text-[9pt] text-slate-700">
+                                        <li key={idx} className="text-[8.5pt] text-slate-700">
                                             <span className="font-bold">{item.role}</span>, {item.org}
                                         </li>
                                     ))}

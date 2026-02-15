@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 import ResearchConsole from './pages/ResearchConsole';
 
 import SystemResume from './pages/SystemResume';
-
+import ProjectDetail from './pages/ProjectDetail';
 import ResumeMarkdown from './pages/ResumeMarkdown';
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/resume" element={<SystemResume />} />
             <Route path="/resume-markdown" element={<ResumeMarkdown />} />
+            <Route path="/project/:projectId" element={<ProjectDetail />} />
           </Routes>
         </main>
         <div className="print:hidden">

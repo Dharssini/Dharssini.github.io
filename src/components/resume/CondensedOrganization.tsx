@@ -50,7 +50,10 @@ const CondensedOrganization: React.FC<CondensedOrganizationProps> = ({ organizat
                             </div>
                             <div>
                                 <span className="font-bold text-slate-900">Solution: </span>
-                                <span className="font-medium text-slate-800">{project.solution}</span>
+                                <span
+                                    className="font-medium text-slate-800"
+                                    dangerouslySetInnerHTML={{ __html: project.solution.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+                                />
                             </div>
                         </div>
 

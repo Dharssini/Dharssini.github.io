@@ -413,6 +413,10 @@ pre code {
     padding: 0 !important;
     background-color: white !important;
     overflow: visible !important;
+    font-size: 10pt;
+    /* Ensure consistent base font size */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   /* Hide unrelated elements - Targeted approach */

@@ -30,12 +30,12 @@ export const knowledgeBase: KnowledgeItem[] = [
   {
     id: 'multiagent-healthcare',
     title: 'Multi-Agent AI System for Healthcare',
-    description: 'LangFlow/LangChain orchestration with 7 specialized agents (support, sales, information) using confidence-based routing',
+    description: 'LangFlow/LangChain system with 7 specialized agents (support, sales, information) using confidence-based routing',
     topics: ['multiagent', 'llm', 'rag', 'healthcare', 'nlp'],
     type: 'project',
     details: [
       'Built confidence-based routing with 70%/50%/30% thresholds',
-      'Engineered hybrid vector search with 3 fusion strategies (RRF, weighted, cascade)',
+      'Implemented hybrid search with 3 fusion strategies (RRF, weighted, cascade)',
       'Implemented 768-dimensional embeddings for semantic search',
       'Integrated conversation histories and knowledge base contexts',
     ],
@@ -51,7 +51,7 @@ export const knowledgeBase: KnowledgeItem[] = [
     type: 'project',
     details: [
       '5-tier crisis detection (suicide, self-harm, violence) across 40+ keywords',
-      'FAISS-powered RAG with 34 psychological dimensions (IDG, KEDS)',
+      'FAISS-powered search with 34 psychological dimensions (IDG, KEDS)',
       'Microservices architecture: FastAPI gateway, Faster Whisper ASR, TTS',
       'Emergency protocols and safety alignment systems',
     ],
@@ -132,13 +132,13 @@ export const knowledgeBase: KnowledgeItem[] = [
   // Computer Vision
   {
     id: 'ocr-pipeline',
-    title: 'Production OCR Pipeline with OCDRNet',
+    title: 'Scalable OCR Pipeline with OCDRNet',
     description: 'Automated document OCR using NVIDIA TAO framework on Triton Inference Server',
     topics: ['cv', 'mlops', 'optimization'],
     type: 'project',
     details: [
       'OCDRNet deployment on Triton Inference Server',
-      'Optimized preprocessing pipeline for higher accuracy',
+      'Optimized cleanup pipeline for higher accuracy',
       'Document classification with LayoutLM',
       'Production deployment with IIS/NSSM/FastAPI',
     ],
@@ -165,7 +165,7 @@ export const knowledgeBase: KnowledgeItem[] = [
   {
     id: 'route-optimization',
     title: 'VRP Solver with Multi-Provider Geocoding',
-    description: 'Google OR-Tools based route optimization with intelligent caching',
+    description: 'Google OR-Tools based route planner with location caching',
     topics: ['optimization', 'robotics', 'mlops'],
     type: 'project',
     details: [
@@ -181,7 +181,7 @@ export const knowledgeBase: KnowledgeItem[] = [
   },
   {
     id: 'vector-search',
-    title: 'Hybrid Vector Search Architecture',
+    title: 'Hybrid Search Architecture',
     description: 'Advanced vector search with multiple fusion strategies for optimal retrieval',
     topics: ['rag', 'optimization', 'mlops'],
     type: 'skill',
@@ -196,7 +196,7 @@ export const knowledgeBase: KnowledgeItem[] = [
   {
     id: 'microservices',
     title: 'Enterprise AI Microservices Architecture',
-    description: 'Production-grade containerized deployment on Azure',
+    description: 'Enterprise containerized deployment on Azure',
     topics: ['mlops', 'optimization'],
     type: 'skill',
     details: [
@@ -227,7 +227,7 @@ export const knowledgeBase: KnowledgeItem[] = [
   {
     id: 'prompt-engineering',
     title: 'Advanced Prompt Engineering',
-    description: 'Systematic prompt design for production LLM systems',
+    description: 'Systematic prompt design for robust LLM systems',
     topics: ['llm', 'nlp'],
     type: 'skill',
     details: [

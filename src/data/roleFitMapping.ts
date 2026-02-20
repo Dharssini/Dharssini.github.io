@@ -10,18 +10,18 @@ export const roleFitMap: Record<RoleType, {
 }> = {
   'ml-engineer': {
     strongSignals: [
-      { type: 'project', id: 'multiagent-healthcare', reason: 'Production multi-agent system with confidence-based routing', priority: 'high' },
+      { type: 'project', id: 'multiagent-healthcare', reason: 'Scalable multi-agent system with routing based on confidence', priority: 'high' },
       { type: 'achievement', id: 'rag-document-retrieval', reason: 'QLoRA fine-tuning reducing manual effort by 70%', priority: 'high' },
       { type: 'project', id: 'mental-health-platform', reason: 'Full-stack platform with 5-tier crisis detection', priority: 'high' },
       { type: 'project', id: 'location-chatbot', reason: '80% latency reduction through intelligent caching', priority: 'medium' },
     ],
     relevantDepth: [
       { type: 'skill', id: 'qora-finetuning', reason: 'Parameter-efficient fine-tuning expertise', priority: 'high' },
-      { type: 'skill', id: 'vector-search', reason: 'Advanced vector search with multiple fusion strategies', priority: 'high' },
-      { type: 'project', id: 'ocr-pipeline', reason: 'Production OCR deployment on Triton', priority: 'medium' },
+      { type: 'skill', id: 'vector-search', reason: 'Advanced search with multiple fusion strategies', priority: 'high' },
+      { type: 'project', id: 'ocr-pipeline', reason: 'Scalable OCR deployment on Triton', priority: 'medium' },
     ],
     communicationStyle: [
-      { type: 'skill', id: 'prompt-engineering', reason: 'Systematic prompt design for production systems', priority: 'medium' },
+      { type: 'skill', id: 'prompt-engineering', reason: 'Systematic prompt design for enterprise systems', priority: 'medium' },
     ],
     gaps: ['Limited public cloud infrastructure visibility (primarily Azure)'],
     overallFit: 'strong',
@@ -64,10 +64,10 @@ export const roleFitMap: Record<RoleType, {
   },
   'founding-engineer': {
     strongSignals: [
-      { type: 'project', id: 'multiagent-healthcare', reason: 'End-to-end multi-agent system architecture', priority: 'high' },
+      { type: 'project', id: 'multiagent-healthcare', reason: 'End-to-end multi-agent system design', priority: 'high' },
       { type: 'project', id: 'mental-health-platform', reason: 'Full-stack microservices with safety protocols', priority: 'high' },
       { type: 'achievement', id: 'rag-document-retrieval', reason: '$4,500+ operational savings', priority: 'high' },
-      { type: 'skill', id: 'microservices', reason: 'Production deployment on Azure with monitoring', priority: 'high' },
+      { type: 'skill', id: 'microservices', reason: 'Enterprise deployment on Azure with monitoring', priority: 'high' },
     ],
     relevantDepth: [
       { type: 'project', id: 'route-optimization', reason: 'OR-Tools optimization with adaptive strategies', priority: 'medium' },
@@ -119,12 +119,12 @@ export const roleFitMap: Record<RoleType, {
 export const signalMap: Record<RoleSignal, ContentReference[]> = {
   'deep-learning-fundamentals': [
     { type: 'skill', id: 'qora-finetuning', reason: 'LoRA/QLoRA theory and implementation', priority: 'high' },
-    { type: 'skill', id: 'vector-search', reason: 'Embedding optimization strategies', priority: 'high' },
+    { type: 'skill', id: 'vector-search', reason: 'Search optimization strategies', priority: 'high' },
     { type: 'research', id: 'embedding-optimization', reason: '768-dimensional embedding research', priority: 'medium' },
   ],
   'system-design': [
     { type: 'skill', id: 'microservices', reason: '5 containerized microservices on Azure', priority: 'high' },
-    { type: 'project', id: 'multiagent-healthcare', reason: 'Multi-agent orchestration architecture', priority: 'high' },
+    { type: 'project', id: 'multiagent-healthcare', reason: 'Multi-agent system design', priority: 'high' },
     { type: 'project', id: 'mental-health-platform', reason: 'Microservices with WebSocket + REST', priority: 'high' },
   ],
   'research-depth': [
@@ -184,7 +184,7 @@ export function generateRoleFitReport(
 
 function getRoleDisplayName(roleType: RoleType): string {
   const displayNames: Record<RoleType, string> = {
-    'ml-engineer': 'ML Engineer (Production)',
+    'ml-engineer': 'ML Engineer (Scalable Systems)',
     'research-engineer': 'Research Engineer (Applied Research)',
     'ai-product-engineer': 'AI Product Engineer (Prototype → Scale)',
     'founding-engineer': 'Founding Engineer (AI Startup)',
@@ -202,7 +202,7 @@ export function getIntentRecommendations(
   const intentMap: Record<string, ContentReference[]> = {
     'depth-understanding': [
       { type: 'research', id: 'safety-alignment', reason: 'Multi-layered safety research', priority: 'high' },
-      { type: 'research', id: 'embedding-optimization', reason: 'Vector search optimization', priority: 'high' },
+      { type: 'research', id: 'embedding-optimization', reason: 'Search optimization', priority: 'high' },
       { type: 'achievement', id: 'rag-document-retrieval', reason: 'QLoRA fine-tuning research', priority: 'high' },
       { type: 'skill', id: 'qora-finetuning', reason: 'Deep technical knowledge', priority: 'medium' },
       { type: 'skill', id: 'vector-search', reason: 'Multiple fusion strategies', priority: 'medium' },
@@ -210,7 +210,7 @@ export function getIntentRecommendations(
     'build-systems': [
       { type: 'project', id: 'multiagent-healthcare', reason: 'Complex multi-agent system', priority: 'high' },
       { type: 'project', id: 'mental-health-platform', reason: 'Full-stack microservices', priority: 'high' },
-      { type: 'skill', id: 'microservices', reason: 'Production architecture', priority: 'high' },
+      { type: 'skill', id: 'microservices', reason: 'Enterprise architecture', priority: 'high' },
       { type: 'project', id: 'ocr-pipeline', reason: 'Triton deployment', priority: 'medium' },
     ],
     'research-mindset': [

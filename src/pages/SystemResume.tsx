@@ -47,7 +47,7 @@ const SystemResume: React.FC = () => {
             <div className="fixed bottom-8 right-8 print:hidden z-50">
                 <button
                     onClick={handlePrint}
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg transition-all hover:scale-110 flex items-center gap-2 font-bold"
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg transition-all hover:scale-110 hidden md:flex items-center gap-2 font-bold"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect width="12" height="8" x="6" y="14" /></svg>
                     PDF
@@ -130,8 +130,8 @@ const SystemResume: React.FC = () => {
                         <div className="space-y-4">
                             {Object.entries(groupedProjects).map(([client, projects]: [string, any], idx) => (
                                 <div key={idx} className={`
-                                    ${idx === 0 ? 'print:mb-4' : ''} 
-                                    ${idx === 1 ? 'print:break-before-page print:pt-6' : ''}
+                                    ${idx === 0 ? 'print:mb-3' : ''} 
+                                    ${idx === 1 ? 'print:break-before-page print:pt-4' : ''}
                                 `}>
                                     <OrganizationCard
                                         organization={client}
@@ -241,8 +241,8 @@ const SystemResume: React.FC = () => {
                         </section>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

@@ -76,7 +76,10 @@ const SystemCard: React.FC<SystemCardProps> = ({ project }) => {
                         </div>
                         <div>
                             <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest mb-1 block print:text-slate-900">The Solution</span>
-                            <p className="text-sm font-bold text-slate-800 leading-snug print:text-slate-900">{project.solution}</p>
+                            <p
+                                className="text-sm text-slate-800 leading-snug print:text-slate-900"
+                                dangerouslySetInnerHTML={{ __html: project.solution.replace(/\*\*(.*?)\*\*/g, '<strong class="font-black text-slate-900">$1</strong>') }}
+                            />
                         </div>
                     </div>
 

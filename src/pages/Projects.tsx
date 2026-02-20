@@ -59,9 +59,10 @@ export default function Projects() {
                 <div className="lg:col-span-5 space-y-6 lg:border-l lg:border-dark-800 lg:pl-8">
                   <div>
                     <h3 className="text-sm font-semibold text-dark-200 mb-2 uppercase tracking-wide">The Solution</h3>
-                    <p className="text-sm text-dark-300 leading-relaxed mb-4">
-                      {project.solution}
-                    </p>
+                    <p
+                      className="text-sm text-dark-300 leading-relaxed mb-4"
+                      dangerouslySetInnerHTML={{ __html: project.solution.replace(/\*\*(.*?)\*\*/g, '<strong class="text-dark-200 font-semibold">$1</strong>') }}
+                    />
                   </div>
 
                   <div className="bg-dark-900 border border-dark-700 rounded-lg p-4">

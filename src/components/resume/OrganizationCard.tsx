@@ -73,9 +73,12 @@ const OrganizationCard: React.FC<OrganizationCardProps> = ({ organization, role,
                                     {project.solution.split('·').map((point, pIdx) => {
                                         if (!point.trim()) return null;
                                         return (
-                                            <li key={pIdx}>
-                                                {point.trim()}{!point.trim().endsWith('.') && '.'}
-                                            </li>
+                                            <li
+                                                key={pIdx}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: (point.trim() + (!point.trim().endsWith('.') ? '.' : '')).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                                                }}
+                                            />
                                         )
                                     })}
                                 </ul>
@@ -90,7 +93,7 @@ const OrganizationCard: React.FC<OrganizationCardProps> = ({ organization, role,
                                         <span className="text-indigo-500 font-bold text-[10px] mt-0.5 md:mt-0">&gt;</span>
                                         <span
                                             className="text-indigo-700 font-medium"
-                                            dangerouslySetInnerHTML={{ __html: metric.replace(/\*\*/g, '') }}
+                                            dangerouslySetInnerHTML={{ __html: metric.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
                                         />
                                     </li>
                                 ))}

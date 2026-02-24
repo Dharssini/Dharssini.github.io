@@ -44,6 +44,39 @@ const blogPosts = [
     featured: false,
   },
   {
+    title: 'Fine-Tuning Best Practices',
+    date: '2024-11-20',
+    readTime: '10 min read',
+    category: 'Best Practices',
+    description: 'A comprehensive guide to preparing data, selecting models, and configuring hyperparameters for successful LLM fine-tuning.',
+    topics: ['Fine-Tuning', 'LoRA', 'Best Practices'],
+    excerpt: 'Fine-tuning large language models requires careful attention to data quality and hyperparameters...',
+    link: '#/blog/fine-tuning-best-practices',
+    featured: true,
+  },
+  {
+    title: 'Fine-Tuning Examples',
+    date: '2024-11-22',
+    readTime: '5 min read',
+    category: 'Implementation',
+    description: 'Practical examples and code snippets for different fine-tuning tasks including chat, classification, and summarization.',
+    topics: ['Fine-Tuning', 'Examples', 'Code'],
+    excerpt: 'Real-world examples of how to format datasets and apply fine-tuning techniques for various generative AI tasks...',
+    link: '#/blog/fine-tuning-examples',
+    featured: false,
+  },
+  {
+    title: 'Quantization Analysis in Model Training',
+    date: '2024-11-25',
+    readTime: '15 min read',
+    category: 'Analysis',
+    description: 'An in-depth analysis of quantization techniques like QLoRA and their impact on model performance and memory usage.',
+    topics: ['Quantization', 'QLoRA', 'Analysis'],
+    excerpt: 'How does quantizing a model to 4-bit affect its downstream performance? A deep dive into the trade-offs...',
+    link: '#/blog/quantization_analysis',
+    featured: true,
+  },
+  {
     title: 'Comparing 8 Linear Attention Mechanisms',
     date: '2024-11-20',
     readTime: '18 min read',
@@ -162,11 +195,10 @@ export default function Blogs() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  selectedCategory === category
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category
                     ? 'bg-primary-500 text-white'
                     : 'bg-dark-800 text-dark-300 hover:bg-dark-700'
-                }`}
+                  }`}
               >
                 {category}
               </button>

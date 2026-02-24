@@ -12,6 +12,7 @@ import ResearchConsole from './pages/ResearchConsole';
 import SystemResume from './pages/SystemResume';
 import ProjectDetail from './pages/ProjectDetail';
 import ResumeMarkdown from './pages/ResumeMarkdown';
+import BlogDetail from './pages/BlogDetail';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/resume" element={<SystemResume />} />
             <Route path="/resume-markdown" element={<ResumeMarkdown />} />
             <Route path="/project/:projectId" element={<ProjectDetail />} />
+            <Route path="/blog/:blogId" element={<BlogDetail />} />
           </Routes>
         </main>
         <div className="print:hidden">

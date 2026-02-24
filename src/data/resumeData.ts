@@ -109,7 +109,7 @@ export const resumeData = {
     ],
     projects: [
         { name: "Google Photos Clone", link: "https://github.com/Dharssini/GooglePhotosClone", desc: "Implemented facial recognition achieving >90% accuracy on standard benchmarks." },
-        { name: "FineTuning Phi3", link: "https://dharssini.github.io/PortfolioWebsite/#/project/finetuning-phi3", desc: "Optimized Phi-3 Mini on biology dataset for specific content generation." },
+        { name: "FineTuning Phi3", link: "https://dharssini.github.io/PortfolioWebsite/#/blog/fine-tuning-best-practices", desc: "Optimized Phi-3 Mini on biology dataset for specific content generation." },
         { name: "Transformer Scratch", link: "https://dharssini.github.io/PortfolioWebsite/#/project/transformer-scratch", desc: "Built 'Attention Is All You Need' architecture from scratch in PyTorch." },
         { name: "DeepSeekV3", link: "https://dharssini.github.io/PortfolioWebsite/#/project/deepseek-v3", desc: "Implemented architecture with advanced attention mechanisms, model optimization, and reinforcement learning." }
     ],

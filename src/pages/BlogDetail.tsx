@@ -44,7 +44,7 @@ const BlogDetail: React.FC = () => {
         if (!blogId) return;
 
         setLoading(true);
-        fetch(`${import.meta.env.BASE_URL}blogs/${blogId}.md`)
+        fetch(`blogs/${blogId}.md`)
             .then(res => {
                 if (!res.ok) throw new Error('Blog not found');
                 return res.text();

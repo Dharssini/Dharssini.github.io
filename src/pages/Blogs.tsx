@@ -196,8 +196,8 @@ export default function Blogs() {
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category
-                    ? 'bg-primary-500 text-white'
-                    : 'bg-dark-800 text-dark-300 hover:bg-dark-700'
+                  ? 'bg-primary-500 text-white'
+                  : 'bg-dark-800 text-dark-300 hover:bg-dark-700'
                   }`}
               >
                 {category}

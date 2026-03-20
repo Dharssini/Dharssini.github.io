@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkHeadingId from 'remark-heading-id';
+import remarkMath from 'remark-math';
+import rehypeSlug from 'rehype-slug';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import mermaid from 'mermaid';
 
 mermaid.initialize({ startOnLoad: false, theme: 'dark' });
@@ -83,7 +88,8 @@ const BlogDetail: React.FC = () => {
                 </div>
                 <div className="p-8 prose prose-slate max-w-none">
                     <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
+                        remarkPlugins={[remarkGfm, remarkMath, [remarkHeadingId, { defaults: true }]]}
+                        rehypePlugins={[rehypeSlug, rehypeKatex]}
                         components={{
                             code({ node, inline, className, children, ...props }: any) {
                                 const match = /language-(\w+)/.exec(className || '');

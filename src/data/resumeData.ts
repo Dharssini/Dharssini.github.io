@@ -11,9 +11,9 @@ export const resumeData = {
     },
     summary: "Research-driven Applied AI Engineer with a strong foundation in Generative AI, Large Language Models (LLMs), and Multi-Agent Systems. Proven track record of building scalable, privacy-first AI solutions for healthcare and enterprise domains. Expert in optimizing inference latency, creating novel retrieval algorithms (RAG), and building robust MLOps pipelines. Committed to advancing the field of AI through hypothesis-driven experimentation and rigorous evaluation.",
     skills: [
-        { category: "Generative AI & LLMs", items: ["LM Agents", "GPT-4", "LLaMA-3", "RAG", "LangChain", "LlamaIndex", "LangGraph", "AutoGen", "DSPy", "MCP", "Langflow", "Langfuse", "PEFT", "QLoRA", "Fine-Tuning"] },
-        { category: "Machine Learning & Research", items: ["PyTorch", "TensorFlow", "Transformers", "Computer Vision", "YOLO", "OpenCV", "Deep Learning", "Statistical Modeling", "Algorithm Design", "RLHF"] },
-        { category: "MLOps & Cloud Infrastructure", items: ["MLOps", "Docker", "Kubernetes", "Azure AKS", "GCP", "Google ADK", "Triton Server", "Pytest", "E2E Tests", "CI/CD", "Model Serving"] },
+        { category: "Generative AI & LLMs", items: ["LM Agents", "GPT-4", "LLaMA-3", "vLLM", "SGLang", "RAG", "LangChain", "LlamaIndex", "LangGraph", "AutoGen", "DSPy", "MCP", "Langflow", "Langfuse", "PEFT", "QLoRA", "Fine-Tuning"] },
+        { category: "Machine Learning & Research", items: ["PyTorch", "Transformers", "Computer Vision", "OpenCV", "Deep Learning", "CUDA", "Statistical Modeling", "Algorithm Design", "RLHF"] },
+        { category: "MLOps & Cloud Infrastructure", items: ["MLOps", "Docker", "Kubernetes", "Azure AKS", "GCP", "Google ADK", "Ansible", "Terraform", "Triton", "TensorRT", "Triton Server", "Pytest", "E2E Tests", "CI/CD", "Model Serving"] },
         { category: "Data Engineering & Systems", items: ["FastAPI", "Microservices", "Vector DBs", "Qdrant", "Pinecone", "Redis", "Distributed Systems", "Apache Solr", "Event-Driven", "n8n"] },
         { category: "Languages", items: ["Python", "C++", "SQL", "TypeScript", "Bash"] },
         { category: "Data Science", items: ["Pandas", "NumPy", "Scikit-learn", "SciPy", "Data Visualization", "Information Retrieval"] }
@@ -45,7 +45,7 @@ export const resumeData = {
             location: "Remote, Sweden",
             period: "Jan 2025 - Present",
             bullets: [
-                "**Privacy-Preserving Edge AI:** Developed a Private Local AI voice assistant using efficient **Small Language Models (SLMs)** like Llama-3 and Mistral. Achieved **<2s speed** by optimizing local processing chains and implementing **Voice Activity Detection (VAD)**.",
+                "**AI Voice Assistant & Inference Optimization:** Architected a 3-stage LLM pipeline and engineered a self-hosted Azure GPU architecture using **SGLang/vLLM** (Llama 3.2 3B), achieving **<2s latency** and supporting 50-70 concurrent users with **100% data privacy**.",
                 "**Hybrid Search Algorithms:** Created a novel **Mixed Ranking Method** combining keyword search and vector similarity within **Apache Solr**, indexing 500K+ documents. Solved the cold-start problem and improved results for unclear queries by **40%**.",
                 "**Scalable Optimization Engine:** Built a High-speed route planner using **Google OR-Tools** and advanced logic. Reduced fleet operational costs by **15%** through fast map calculations and distributed caching."
             ]
@@ -174,14 +174,15 @@ export const resumeData = {
             role: "Founding System Design & Research Freelancer",
             period: "Jan 2025 - Present",
             location: "Remote, Sweden",
-            problem: "Need for private, fast mental health support agent without cloud dependency, maintaining clinical safety compliance and therapeutic continuity on consumer hardware.",
-            solution: "· Created a **Private Local AI** system leveraging efficient **Small Language Models** (Llama-3/Qwen-3/Mistral) with multi-agent management and dynamic prompts. · Designed a real-time **Voice-to-Voice pipeline** combining speech-to-text with streaming text-to-speech and custom **Voice Activity Detection**. · Implemented strict three-tier risk classification with **private local search** for clinical protocol grounding.",
+            problem: "Needed a highly responsive, private mental health support agent capable of maintaining clinical safety, achieving <2s latency for seamless voice turn-taking, and scaling cost-effectively to support 50-70 concurrent users.",
+            solution: "· **Inference Optimization & Cost Reduction:** Conducted extensive load testing and benchmarking (via Locust) of state-of-the-art LLM inference engines (SGLang, vLLM) against managed Azure AI services. Engineered a self-hosted Azure GPU architecture for Llama 3.2 3B that drastically reduced per-user inference costs while meeting concurrency targets. · **Advanced LLM Pipeline Engineering:** Architected a highly-optimized, 3-stage sequential inference flow (Patient Summary → Intent Classification → Final Response). Utilized PyTorch profiling and custom bottleneck discovery scripts to maximize throughput and maintain clinical relevance. · **Voice-to-Voice Latency Minimization:** Implemented deep PyTorch architecture optimizations alongside ASR/TTS pipeline tuning (using Faster Whisper), successfully achieving stable <2s end-to-end latency for natural therapeutic continuity. · **Hardware Scaling & Privacy:** Led GPU hardware research and capacity planning to seamlessly support 50-70 concurrent production sessions ensuring 100% data privacy (zero external cloud-vendor AI dependencies).",
             impact: [
-                "**<2s Speed** for seamless turn-taking",
-                "**100% Data Privacy** (zero cloud dependency)"
+                "**<2s Latency** for seamless turn-taking",
+                "**100% Data Privacy** (zero external cloud-vendor AI dependencies)",
+                "**50-70 Concurrent Users** supported cost-effectively"
             ],
-            techStack: ["Python", "PyTorch", "Faster Whisper", "Llama-3"],
-            architectureDiagram: "Audio → VAD → Whisper → Risk Classify → SLM Agent → TTS"
+            techStack: ["Python", "PyTorch", "Llama-3/3.2", "Faster Whisper", "vLLM", "SGLang", "Locust", "Azure"],
+            architectureDiagram: "Audio → Faster Whisper → [Summary → Intent → Response] (vLLM/SGLang) → TTS"
         },
         {
             id: "research-search",

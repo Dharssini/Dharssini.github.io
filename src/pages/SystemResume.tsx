@@ -57,23 +57,23 @@ const SystemResume: React.FC = () => {
             <div className="resume-page w-full md:max-w-[210mm] md:mx-auto bg-white shadow-xl relative md:overflow-hidden h-auto md:min-h-[297mm]">
                 {/* Header Section (Compressed) */}
                 <header className="bg-slate-950 text-white px-4 py-4 md:px-6 md:py-2 print:p-2">
-                    <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 md:gap-0">
+                    <div className="flex flex-col md:flex-row print:flex-row justify-between md:items-end print:items-end gap-4 md:gap-0 print:gap-0">
                         <div className="mb-0.5">
                             <h1 className="text-2xl font-black tracking-tighter mb-0 line-height-[1]">{personalInfo.name}</h1>
                             <p className="text-xs font-bold text-indigo-400 tracking-widest uppercase">{personalInfo.title}</p>
                         </div>
-                        <div className="text-left md:text-right space-y-1 md:space-y-0.5 text-sm md:text-[9pt] font-medium text-slate-400">
-                            <p className="flex items-center justify-start md:justify-end gap-2">
+                        <div className="text-left md:text-right print:text-right space-y-1 md:space-y-0.5 print:space-y-0.5 text-sm md:text-[9pt] print:text-[9pt] font-medium text-slate-400">
+                            <p className="flex items-center justify-start md:justify-end print:justify-end gap-2">
                                 <IconMapPin /> {personalInfo.location}
                             </p>
-                            <p className="flex items-center justify-start md:justify-end gap-2">
+                            <p className="flex items-center justify-start md:justify-end print:justify-end gap-2">
                                 <IconMail />
                                 <a href={`mailto:${personalInfo.email}`} className="hover:text-white transition-colors">{personalInfo.email}</a>
                             </p>
-                            <div className="flex items-center justify-start md:justify-end gap-2">
+                            <div className="flex items-center justify-start md:justify-end print:justify-end gap-2">
                                 <p className="text-white font-bold">{personalInfo.phone}</p>
                             </div>
-                            <div className="flex flex-wrap md:justify-end gap-3 mt-1 md:mt-0.5">
+                            <div className="flex flex-wrap justify-start md:justify-end print:justify-end gap-3 mt-1 md:mt-0.5 print:mt-0.5">
                                 <a href={`https://github.com/${personalInfo.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-white transition-colors">
                                     <IconGithub /> github.com/{personalInfo.github}
                                 </a>
@@ -105,11 +105,11 @@ const SystemResume: React.FC = () => {
                     </div>
 
                     <section className="relative py-0">
-                        <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-0 items-start md:items-stretch md:divide-x divide-slate-200">
+                        <div className="grid grid-cols-2 md:grid-cols-6 print:grid-cols-6 gap-2 md:gap-0 print:gap-0 items-start md:items-stretch print:items-stretch md:divide-x print:divide-x divide-slate-200">
                             {skills.map((skill: any, idx: number) => (
-                                <div key={idx} className="col-span-1 md:px-1.5 first:pl-0 last:pr-0 space-y-1 md:space-y-0.5">
-                                    <h3 className="text-[10px] md:text-[6.5pt] font-black text-slate-500 uppercase tracking-widest mb-1 md:mb-0.5 leading-none">{skill.category}</h3>
-                                    <div className="flex flex-wrap gap-1 md:gap-0.5">
+                                <div key={idx} className="col-span-1 md:px-1.5 print:px-1.5 first:pl-0 last:pr-0 space-y-1 md:space-y-0.5 print:space-y-0.5">
+                                    <h3 className="text-[10px] md:text-[6.5pt] print:text-[6.5pt] font-black text-slate-500 uppercase tracking-widest mb-1 md:mb-0.5 print:mb-0.5 leading-none">{skill.category}</h3>
+                                    <div className="flex flex-wrap gap-1 md:gap-0.5 print:gap-0.5">
                                         {skill.items.map((item: string, iIdx: number) => (
                                             <span key={iIdx} className="bg-slate-100 border border-slate-200 text-slate-700 px-1 py-0.5 rounded text-[6.5pt] font-bold leading-none">
                                                 {item}
@@ -148,11 +148,11 @@ const SystemResume: React.FC = () => {
 
                     {/* Other Experience - Matching OrganizationCard Header Style */}
                     <section>
-                        <h2 className="text-[11pt] md:text-[9pt] font-black text-slate-400 uppercase tracking-[0.2em] mb-2 md:mb-0.5 flex items-center gap-2">
+                        <h2 className="text-[11pt] md:text-[9pt] print:text-[9pt] font-black text-slate-400 uppercase tracking-[0.2em] mb-2 md:mb-0.5 print:mb-0.5 flex items-center gap-2">
                             Professional History
                             <span className="h-px bg-slate-200 flex-grow"></span>
                         </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-1">
+                        <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-1 print:gap-y-1">
                             {resumeData.experience
                                 .filter((exp: any) => !['Improva', 'CyberTranscend'].includes(exp.company))
                                 .map((exp: any, idx: number) => (
@@ -192,11 +192,11 @@ const SystemResume: React.FC = () => {
                     <div className="pt-2 border-t border-slate-100">
                         {/* Selected Projects */}
                         <section>
-                            <h2 className="text-[11pt] md:text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-2 md:mb-1 border-b border-slate-200 pb-1">
+                            <h2 className="text-[11pt] md:text-[9pt] print:text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-2 md:mb-1 print:mb-1 border-b border-slate-200 pb-1">
                                 Additional Projects
                             </h2>
                             <div className="space-y-1">
-                                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-3">
+                                <div className="grid grid-cols-1 md:grid-cols-4 print:grid-cols-4 gap-4 md:gap-3 print:gap-3">
                                     {projects.map((project: any, idx: number) => (
                                         <div key={idx} className="flex flex-col gap-0.5">
                                             {project.link && project.link !== '#' ? (
@@ -217,7 +217,7 @@ const SystemResume: React.FC = () => {
                         </section>
 
                         {/* Education & Leadership */}
-                        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 pt-4 md:pt-2 border-t border-slate-200 mt-4 md:mt-2">
+                        <section className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-6 md:gap-8 print:gap-8 pt-4 md:pt-2 print:pt-2 border-t border-slate-200 mt-4 md:mt-2 print:mt-2">
                             <div>
                                 <h2 className="text-[9pt] font-bold text-slate-800 uppercase tracking-widest mb-1">Education</h2>
                                 {education.map((edu: any, idx: number) => (
